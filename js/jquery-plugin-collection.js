@@ -1,9 +1,3 @@
-/*
-@Author: ThemeMascot
-@URL: http://ThemeMascot.com
-
-Necessary jQuery Collection
-*/
 
 /**
  * Table of Contents:
