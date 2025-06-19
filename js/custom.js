@@ -2096,6 +2096,9 @@ var THEMEMASCOT = {};
                     minSlides: ( $bxslider.data("minslides") === undefined ) ? 2: $bxslider.data("minslides"),
                     slideMargin: 20,
                     pager: false,
+                    speed: 500,
+                    pause: 4000,
+                    auto: true,
                     prevText: '<i class="fa fa-angle-left"></i>',
                     nextText: '<i class="fa fa-angle-right"></i>'
                 });

@@ -268,6 +268,54 @@ form {
 .text-highlight.light {
   background: #808080;
 }
+
+.equal-height {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.equal-height > [class*="col-"] {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.custom-icon-box {
+    margin-top: 1.5rem;
+    background: rgb(246 220 244);
+    transition: .5s;
+    text-align: center;
+    padding: 1.5rem;
+}
+
+.custom-icon {
+    margin-bottom: 1.5rem;
+    display: block;
+    font-size: 3em;
+    color: #441240;
+    transition: .5s;
+}
+
+.icon-box-title {
+    margin-bottom: 1rem !important;
+    margin-top: 0 !important;
+    transition: .5s;
+}
+
+.custom-icon-box:hover {
+    background: #441240;
+    box-shadow: 0px 4px 25px 0px rgb(0 4 16 / 15%);
+}
+
+.custom-icon-box p {
+    transition: .5s;
+}
+
+.custom-icon-box:hover p,
+.custom-icon-box:hover .icon-box-title,
+.custom-icon-box:hover .custom-icon {
+    color: #ffffff;
+}
 /*
  * common.less
  * -----------------------------------------------
@@ -839,6 +887,13 @@ iframe.map-frame .place-card.place-card-large {
   }
   .scrolltofixed-container .scrolltofixed + div {
     display: none !important;
+  }
+  .home-content.pt-100 {
+    padding-top: 0px !important;
+  }
+  .faq-section.pl-40 {
+    padding-left: 15px !important;
+    padding-top: 40px !important;
   }
 }
 /*
@@ -2965,7 +3020,7 @@ form .error {
 }
 /* bx top nav style */
 .bx-controls .bx-controls-direction > a {
-  background: #eee none repeat scroll 0 0;
+  background: #441240 none repeat scroll 0 0;
   border: medium none;
   height: auto;
   line-height: 26px;
@@ -2976,10 +3031,10 @@ form .error {
   z-index: 0;
 }
 .bx-controls .bx-controls-direction > a:hover {
-  background: #ddd;
+  background: #CB2D3E;
 }
 .bx-controls .bx-controls-direction > a i {
-  color: #888;
+  color: #ffffff;
 }
 .bx-controls .bx-controls-direction .bx-prev {
   right: 35px;
@@ -5913,7 +5968,7 @@ blockquote p {
   position: relative;
 }
 .team-members .team-details {
-  bottom: -50px;
+  bottom: -10px;
   position: absolute;
   transition: all 300ms ease-in-out 0s;
   width: 100%;
