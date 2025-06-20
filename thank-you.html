@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <title>Thank You - United International Business School</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="images/favicon.png" rel="shortcut icon" type="image/png">
+
+  <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+  <link href="css/jquery-ui.min.css" rel="stylesheet" type="text/css">
+  <link href="css/animate.css" rel="stylesheet" type="text/css">
+  <link href="css/css-plugin-collections.css" rel="stylesheet" />
+
+  <link id="menuzord-menu-skins" href="css/menuzord-skins/menuzord-rounded-boxed.css" rel="stylesheet" />
+  <link href="css/style-main.css" rel="stylesheet" type="text/css">
+  <link href="css/preloader.css" rel="stylesheet" type="text/css">
+  <link href="css/custom-bootstrap-margin-padding.css" rel="stylesheet" type="text/css">
+  <link href="css/responsive.css" rel="stylesheet" type="text/css">
+  <link href="css/colors/theme-skin-color-set-1.css" rel="stylesheet" type="text/css">
+
+  <script src="js/jquery-2.2.4.min.js"></script>
+  <script src="js/jquery-ui.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery-plugin-collection.js"></script>
+  
+  <style>
+    :root {
+      --primary: #441240;
+      --secondary: #CB2D3E;
+      --accent: #F26A42;
+      --light: #f8f9fa;
+      --dark: #F26A42;
+      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(135deg, #f5f7fa 0%, #e4edf5 100%);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      overflow-x: hidden;
+    }
+    
+    .background-pattern {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        radial-gradient(var(--primary) 1px, transparent 1px),
+        radial-gradient(var(--secondary) 1px, transparent 1px);
+      background-size: 40px 40px;
+      background-position: 0 0, 20px 20px;
+      opacity: 0.05;
+      z-index: -1;
+    }
+    
+    .university-header {
+      background: linear-gradient(to right, var(--primary), var(--primary));
+      color: white;
+      padding: 20px 0;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      position: relative;
+    }
+    
+    .header-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .university-logo {
+      height: 60px;
+      margin-right: 20px;
+      filter: drop-shadow(0 2px 4px rgba(0,0,0,0.2));
+    }
+    
+    .university-name {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 28px;
+      letter-spacing: 0.5px;
+    }
+    
+    .thank-you-container {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 20px;
+    }
+    
+    .thank-you-card {
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 15px 50px rgba(0, 0, 0, 0.1);
+      max-width: 800px;
+      width: 100%;
+      padding: 60px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      transform: translateY(0);
+      opacity: 0;
+      animation: fadeUp 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      animation-delay: 0.2s;
+    }
+    
+    @keyframes fadeUp {
+      from {
+        transform: translateY(30px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+    
+    .thank-you-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 8px;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+    }
+    
+    .confirmation-animation {
+      position: relative;
+      margin: 0 auto 30px;
+      width: 120px;
+      height: 120px;
+    }
+    
+    .circle {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: rgba(167, 85, 18, 0.2);
+      animation: pulse 2s infinite;
+    }
+    
+    .checkmark {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 60px;
+      height: 60px;
+    }
+    
+    .checkmark__circle {
+      stroke-dasharray: 166;
+      stroke-dashoffset: 166;
+      stroke-width: 2;
+      stroke-miterlimit: 10;
+      stroke: var(--secondary);
+      fill: none;
+      animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+    }
+    
+    .checkmark__check {
+      transform-origin: 50% 50%;
+      stroke-dasharray: 48;
+      stroke-dashoffset: 48;
+      stroke: var(--secondary);
+      animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+    }
+    
+    @keyframes stroke {
+      100% {
+        stroke-dashoffset: 0;
+      }
+    }
+    
+    @keyframes pulse {
+      0% {
+        transform: scale(0.95);
+        opacity: 0.7;
+      }
+      70% {
+        transform: scale(1.1);
+        opacity: 0.2;
+      }
+      100% {
+        transform: scale(0.95);
+        opacity: 0.7;
+      }
+    }
+    
+    h1 {
+      font-weight: 700;
+      font-size: 42px;
+      color: var(--primary);
+      margin-bottom: 20px;
+      line-height: 1.2;
+    }
+    
+    .thank-you-message {
+      font-size: 16px;
+      /* line-height: 1.8; */
+      margin-bottom: 30px;
+      color: var(--dark);
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    
+    .next-steps {
+      background: rgba(26, 58, 108, 0.05);
+      border-radius: 12px;
+      padding: 25px;
+      margin: 30px 0;
+      text-align: left;
+    }
+    
+    .next-steps h3 {
+      font-size: 20px;
+      color: var(--primary);
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+    
+    .next-steps h3 i {
+      margin-right: 10px;
+      color: var(--primary);
+    }
+    
+    .next-steps ul {
+      list-style: none;
+      padding-left: 10px;
+    }
+    
+    .next-steps li {
+      padding: 8px 0;
+      display: flex;
+      align-items: flex-start;
+    }
+    
+    .next-steps li i {
+      color: var(--secondary);
+      margin-right: 12px;
+      margin-top: 5px;
+      font-size: 14px;
+    }
+    
+    .btn-home {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(to right, var(--primary), var(--secondary));
+      color: white !important;
+      font-size: 18px;
+      font-weight: 600;
+      padding: 16px 40px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: var(--transition);
+      box-shadow: 0 10px 20px rgba(26, 58, 108, 0.3);
+      border: none;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .btn-home:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(26, 58, 108, 0.4);
+    }
+    
+    .btn-home i {
+      margin-right: 10px;
+      transition: var(--transition);
+    }
+    
+    .btn-home:hover i {
+      transform: translateX(-5px);
+    }
+    
+    .contact-info {
+      margin-top: 40px;
+      font-size: 16px;
+      color: #666;
+      line-height: 1.6;
+    }
+    
+    .contact-info a {
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+    
+    .contact-info a:hover {
+      color: var(--accent);
+      text-decoration: underline;
+    }
+    
+    .university-footer {
+      background: var(--primary);
+      color: white;
+      padding: 30px 0;
+      text-align: center;
+      font-size: 14px;
+    }
+    
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      margin: 15px 0;
+    }
+    
+    .footer-links a {
+      color: rgba(255, 255, 255, 0.8);
+      margin: 0 15px;
+      text-decoration: none;
+      transition: var(--transition);
+    }
+    
+    .footer-links a:hover {
+      color: white;
+    }
+    
+    .social-icons {
+      margin: 20px 0;
+    }
+    
+    .social-icons a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      border-radius: 50%;
+      margin: 0 8px;
+      transition: var(--transition);
+    }
+    
+    .social-icons a:hover {
+      background: var(--accent);
+      transform: translateY(-5px);
+    }
+    
+    .copyright {
+      margin-top: 20px;
+      color: rgba(255, 255, 255, 0.7);
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .thank-you-card {
+        padding: 40px 25px;
+      }
+      
+      h1 {
+        font-size: 32px;
+      }
+      
+      .thank-you-message {
+        font-size: 16px;
+      }
+      
+      .next-steps {
+        padding: 20px;
+      }
+      
+      .btn-home {
+        padding: 14px 30px;
+        font-size: 16px;
+      }
+      
+      .header-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      
+      .university-logo {
+        margin-right: 0;
+        margin-bottom: 10px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .thank-you-card {
+        padding: 30px 20px;
+      }
+      
+      h1 {
+        font-size: 28px;
+      }
+      
+      .confirmation-animation {
+        width: 100px;
+        height: 100px;
+      }
+      
+      .circle {
+        width: 100px;
+        height: 100px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="background-pattern"></div>
+  
+  <header id="header" class="header redirect">
+    <div class="header-top bg-theme-color-2 sm-text-center">
+        <div class="container">
+            <div class="row">
+            <div class="col-md-8">
+                <div class="widget no-border m-0">
+                <ul class="list-inline">
+                    <li class="m-0 pl-10 pr-10"> <i class="fa fa-phone text-white"></i>
+                    <a class="text-white" href="tel:+918050080021">+91 80500 80021</a>
+                    </li>
+                    <li class="text-white">|</li>
+                    <li class="m-0 pl-10 pr-10"> <i class="fa fa-envelope-o text-white"></i> <a class="text-white"
+                        href="mailto:info@uisblr.com">info@uisblr.com</a> </li>
+                </ul>
+                </div>
+            </div>
+            <div class="col-md-4 mobile-hide">
+                <div class="widget no-border m-0">
+                <ul class="list-inline text-right sm-text-center">
+                    <li>
+                    <a href="https://www.facebook.com/unitedbusinessschoolblr/" class="text-white" target="_blank"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li class="text-white">|</li>
+                    <li>
+                    <a href="https://www.instagram.com/unitedbusinessschool/" class="text-white" target="_blank"><i class="fa fa-instagram"></i></a>
+                    </li>
+                    <li class="text-white">|</li>
+                    <li>
+                    <a href="https://www.youtube.com/@unitedbusinessschool" class="text-white" target="_blank"><i class="fa fa-youtube"></i></a>
+                    </li>
+                    <li class="text-white">|</li>
+                    <li>
+                    <a href="index.html#testimonials" class="text-white">FAQs</a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+            </div>
+        </div>
+    </div>
+    <div class="header-nav">
+        <div class="header-nav-wrapper navbar-scrolltofixed bg-white">
+            <div class="container">
+            <nav id="menuzord-right" class="menuzord default">
+                <a class="menuzord-brand pull-left flip" href="javascript:void(0)">
+                <img src="images/logo-wide.png" alt="">
+                </a>
+                <ul class="menuzord-menu onepage-nav">
+                <li><a href="index.html#home">Home</a></li>
+                <li><a href="index.html#about">About Us</a></li>
+                <li><a href="index.html#why-us">Why Us?</a></li>
+                <li><a href="index.html#teachers">Leadership Team</a></li>
+                <li><a href="index.html#testimonials">Testimonials</a></li>
+                <li><a href="index.html#events">Events</a></li>
+                <li><a href="index.html#gallery">Gallery</a></li>
+                <li><a href="index.html#contact">Contact Us</a></li>
+                </ul>
+            </nav>
+            </div>
+        </div>
+    </div>
+</header>
+  
+  <div class="thank-you-container">
+    <div class="thank-you-card">
+      <div class="confirmation-animation">
+        <div class="circle"></div>
+        <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+          <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+          <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+        </svg>
+      </div>
+      
+      <h1>Thank You for Your Interest!</h1>
+      
+      <p class="thank-you-message">
+        We've successfully received your request for our prospectus. Our admissions team is reviewing your information and will contact you shortly with the next steps.
+      </p>
+      
+      <div class="next-steps">
+        <h3><i class="fas fa-clipboard-list"></i> What Happens Next?</h3>
+        <ul>
+          <li>
+            <i class="fas fa-check-circle"></i>
+            <div>You'll receive an email confirmation with your prospectus download link within 15 minutes</div>
+          </li>
+          <li>
+            <i class="fas fa-check-circle"></i>
+            <div>Our admissions counselor will reach out within 24-48 hours to discuss your academic goals</div>
+          </li>
+          <li>
+            <i class="fas fa-check-circle"></i>
+            <div>We'll schedule a personalized campus tour or virtual information session at your convenience</div>
+          </li>
+        </ul>
+      </div>
+      
+      <a href="#" class="btn-home" id="homeBtn">
+        <i class="fas fa-arrow-left"></i> Return to Home Page
+      </a>
+      
+      <div class="contact-info">
+        <p>Have questions? Contact our admissions team directly at<br>
+          <a href="mailto:admissions@uibsblr.com">admissions@uibsblr.com</a> or call <a href="tel:+918050080021">+91 80500 80021</a>
+        </p>
+      </div>
+    </div>
+  </div>
+  
+  <footer id="footer" class="footer bg-black-222 redirect" data-bg-img="images/footer-bg.png">
+      <div class="container pt-70 pb-20">
+        <div class="row">
+          <div class="col-sm-6 col-md-3">
+            <div class="widget dark wow fadeInUp">
+              <img class="mt-10 mb-15" alt="" src="images/logo-wide-white.png" style="max-width: 210px;">
+              <p class="mb-5">Approved by AICTE</p>
+              <p class="mb-5">Affiliated with Bangalore North University</p>
+              <p class="mb-10">Registered under the Karnataka Government</p>
+              <ul class="styled-icons icon-dark mt-20">
+                <li class="wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".1s" data-wow-offset="10"><a
+                    href="https://www.facebook.com/unitedbusinessschoolblr/" data-bg-color="#3B5998" target="_blank"><i class="fa fa-facebook"></i></a></li>
+                <li class="wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".3s" data-wow-offset="10"><a
+                    href="https://www.instagram.com/unitedbusinessschool/" data-bg-color="#E4405F" target="_blank"><i class="fa fa-instagram"></i></a></li>
+                <li class="wow fadeInLeft" data-wow-duration="1.5s" data-wow-delay=".5s" data-wow-offset="10"><a
+                    href="https://www.youtube.com/@unitedbusinessschool" data-bg-color="#C22E2A" target="_blank"><i class="fa fa-youtube"></i></a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <div class="widget dark wow fadeInUp">
+              <h5 class="widget-title line-bottom">Useful Links</h5>
+              <ul class="list angle-double-right list-border">
+                <li><a href="index.html#about">About Us</a></li>
+                <li><a href="index.html#teachers">Our Leadership Team</a></li>
+                <li><a href="index.html#why-us">Why Choose Us</a></li>
+                <li><a href="index.html#testimonials">Testimonials</a></li>
+                <li><a href="index.html#gallery">Campus Gallery</a></li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <div class="widget dark wow fadeInUp">
+              <h5 class="widget-title line-bottom">Quick Contact</h5>
+              <ul class="list-border">
+                <li><a href="tel:+91 80500 80021"><i class="fa fa-phone mr-5"></i>+91 80500 80021</a></li>
+                <li><a href="tel:+91 80500 01412"><i class="fa fa-phone mr-5"></i>+91 80500 01412</a></li>
+                <li><a href="mailto:admissions@uibsblr.com"><i
+                      class="fa fa-envelope mr-5"></i>admissions@uibsblr.com</a></li>
+                <li><a href="mailto:info@uisblr.com"><i class="fa fa-envelope mr-5"></i>info@uisblr.com</a></li>
+                <li><i class="fa fa-map-marker mr-5"></i>Hennur - Bagalur Main Road,
+                    Kannur Post, Bengaluru, Karnataka - 562149</li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-sm-6 col-md-3">
+            <div class="widget dark wow fadeInUp">
+              <h5 class="widget-title line-bottom">Opening Hours</h5>
+              <div class="opening-hours">
+                <ul class="list-border">
+                  <li class="clearfix"> <span> Mon - Tues : </span>
+                    <div class="value pull-right flip"> 6.00 am - 10.00 pm </div>
+                  </li>
+                  <li class="clearfix text-white"> <span> Wednes - Thurs :</span>
+                    <div class="value pull-right flip"> 8.00 am - 6.00 pm </div>
+                  </li>
+                  <li class="clearfix"> <span> Fri : </span>
+                    <div class="value pull-right flip"> 3.00 pm - 8.00 pm </div>
+                  </li>
+                  <li class="clearfix"> <span> Sat : </span>
+                    <div class="value pull-right flip"> 10.00 am - 2.00 pm </div>
+                  </li>
+                  <li class="clearfix"> <span> Sun : </span>
+                    <div class="value pull-right flip"> Closed </div>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom bg-black-333">
+        <div class="container pt-20 pb-20">
+          <div class="row">
+            <div class="col-md-6">
+              <p class="font-11 text-black-777 m-0 wow fadeInUp">Copyright © 2025 <a href="/">United International
+                  Business School</a>.</p>
+            </div>
+            <div class="col-md-6 text-right">
+              <div class="widget no-border m-0">
+                <ul class="list-inline sm-text-center mt-5 font-12">
+                  <li>
+                    <a href="index.html#faqs">Genral FAQs</a>
+                  </li>
+                  <li>|</li>
+                  <li>
+                    <a href="index.html#events">Upcoming Events</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Handle home button click with clean URL
+      document.getElementById('homeBtn').addEventListener('click', function(e) {
+        e.preventDefault();
+        
+        // Create a smooth transition before redirecting
+        document.querySelector('.thank-you-card').style.animation = 'fadeUp 0.6s reverse forwards';
+        document.querySelector('.thank-you-container').style.opacity = '0';
+        document.querySelector('.thank-you-container').style.transition = 'opacity 0.5s ease';
+        
+        // Redirect after animation completes
+        setTimeout(function() {
+          // This will redirect to the homepage without showing index.html in URL
+          window.location.href = window.location.origin;
+        }, 500);
+      });
+    });
+  </script>
+  <script src="js/custom.js"></script>
+</body>
+</html>

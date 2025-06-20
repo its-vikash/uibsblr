@@ -68,99 +68,13 @@ var THEMEMASCOT = {};
             }
         }
     };
-
-
-    THEMEMASCOT.bmiCalculator = {
-        magic: function(bmi) {
-            var output = '';
-            var info = '';
-            if (bmi) {
-                if (bmi < 15) {
-                    info = "very severely underweight";
-                }
-                if ((bmi >= 15)&&(bmi < 16)) {
-                    info = "severely underweight";
-                }
-                if ((bmi >= 16)&&(bmi < 18.5)) {
-                    info = "underweight";
-                }
-                if ((bmi >= 18.5)&&(bmi < 25)) {
-                    info = "normal";
-                }
-                if ((bmi >= 25)&&(bmi < 30)) {
-                    info = "overweight";
-                }
-                if ((bmi >= 30)&&(bmi < 35)) {
-                    info = "moderately obese";
-                }
-                if ((bmi >= 35)&&(bmi <= 40)) {
-                    info = "severely obese";
-                }
-                if (bmi >40) {
-                    info = "very severely obese";
-                }
-                output = "Your BMI is <span>"  + bmi + "</span><br />" + 
-                                                              "You are <span>"  + info + "</span>.";
-            } else {
-                output = "You broke it!";
-            };
-            return output;
-        },
-        
-        calculateStandard: function (bmi_form) {
-            var weight_lbs = bmi_form.find('input[name="bmi_standard_weight_lbs"]').val();
-            var height_ft = bmi_form.find('input[name="bmi_standard_height_ft"]').val();
-            var height_in = bmi_form.find('input[name="bmi_standard_height_in"]').val();
-            var age = bmi_form.find('input[name="bmi_standard_age"]').val();
-            var gender = bmi_form.find('radio[name="bmi_standard_gender"]').val();
-
-            var total_height_inc = ( parseInt(height_ft, 10) * 12 ) + parseInt(height_in, 10);
-            var bmi = ( parseFloat(weight_lbs) / (total_height_inc * total_height_inc) ) * 703;
-            var output = THEMEMASCOT.bmiCalculator.magic(bmi);
-
-            bmi_form.find('#bmi_standard_calculator_form_result').html(output).fadeIn('slow');
-        },
-        
-        calculateMetric: function (bmi_form) {
-            var weight_kg = bmi_form.find('input[name="bmi_metric_weight_kg"]').val();
-            var height_cm = bmi_form.find('input[name="bmi_metric_height_cm"]').val();
-            var age = bmi_form.find('input[name="bmi_standard_age"]').val();
-            var gender = bmi_form.find('radio[name="bmi_standard_gender"]').val();
-
-            var total_weight_kg = parseFloat(weight_kg) ;
-            var total_height_m = parseFloat(height_cm) * 0.01;
-            var bmi = ( total_weight_kg / (total_height_m * total_height_m) );
-            var output = THEMEMASCOT.bmiCalculator.magic(bmi);
-
-            bmi_form.find('#bmi_metric_calculator_form_result').html(output).fadeIn('slow');
-        },
-        
-        init: function () {
-            var bmi_Standard_Form = $('#form_bmi_standard_calculator');
-            bmi_Standard_Form.on('submit', function(e) {
-                e.preventDefault();
-                THEMEMASCOT.bmiCalculator.calculateStandard(bmi_Standard_Form);
-                return false;
-            });
-
-            var bmi_Metric_Form = $('#form_bmi_metric_calculator');
-            bmi_Metric_Form.on('submit', function(e) {
-                e.preventDefault();
-                THEMEMASCOT.bmiCalculator.calculateMetric(bmi_Metric_Form);
-                return false;
-            });
-        }
-
-    };
+    
 
     THEMEMASCOT.initialize = {
 
         init: function() {
-            THEMEMASCOT.bmiCalculator.init();
             THEMEMASCOT.initialize.TM_fixedFooter();
             THEMEMASCOT.initialize.TM_datePicker();
-            THEMEMASCOT.initialize.TM_ddslick();
-            THEMEMASCOT.initialize.TM_sliderRange();
             THEMEMASCOT.initialize.TM_loadBSParentModal();
             THEMEMASCOT.initialize.TM_demoSwitcher();
             THEMEMASCOT.initialize.TM_platformDetect();
@@ -193,49 +107,6 @@ var THEMEMASCOT = {};
             $( ".date-picker" ).datepicker();
             $( ".time-picker" ).timepicker();
             $( ".datetime-picker" ).datetimepicker();
-        },
-
-        /* ---------------------------------------------------------------------- */
-        /* -------------------------------- ddslick  ---------------------------- */
-        /* ---------------------------------------------------------------------- */
-        TM_ddslick: function() {
-            var $ddslick = $("select.ddslick");
-            if( $ddslick.length > 0 ) {
-                $ddslick.each(function(){
-                    var name =  $(this).attr('name');
-                    var id = $(this).attr('id');
-                    $("#"+id).ddslick({
-                        width: '100%',
-                        imagePosition: "left",
-                        onSelected: function(selectedData){
-                            $("#"+id+ " .dd-selected-value").prop ('name', name);
-                         }  
-                    });
-                });
-            }
-        },
-
-        /* ---------------------------------------------------------------------- */
-        /* ----------------------------- slider range  -------------------------- */
-        /* ---------------------------------------------------------------------- */
-        TM_sliderRange: function() {
-            var $slider_range = $(".slider-range");
-            if( $slider_range.length > 0 ) {
-                $slider_range.each(function(){
-                    var id = $(this).attr('id');
-                    var target_id = $(this).data('target');
-                    $( "#" + target_id ).slider({
-                      range: "max",
-                      min: 2001,
-                      max: 2016,
-                      value: 2010,
-                      slide: function( event, ui ) {
-                        $( "#" + id ).val( ui.value );
-                      }
-                    });
-                    $( "#" + id ).val( $( "#" + target_id ).slider( "value" ) );
-                });
-            }
         },
 
         /* ---------------------------------------------------------------------- */
@@ -587,12 +458,10 @@ var THEMEMASCOT = {};
                 $ajaxload_popup.magnificPopup({
                   type: 'ajax',
                   alignTop: true,
-                  overflowY: 'scroll', // as we know that popup content is tall we set scroll overflow by default to avoid jump
+                  overflowY: 'scroll',
                   callbacks: {
                     parseAjax: function(mfpResponse) {
                       THEMEMASCOT.initialize.TM_datePicker();
-                      THEMEMASCOT.initialize.TM_sliderRange();
-                      THEMEMASCOT.initialize.TM_ddslick();
                     }
                   }
                 });
@@ -793,28 +662,6 @@ var THEMEMASCOT = {};
                 $equal_height.children('div').css('min-height', 'auto');
                 $equal_height.equalHeights();
             }
-
-            /* equal heigh inner div */
-            var $equal_height_inner = $('.equal-height-inner');
-            if( $equal_height_inner.length > 0 ) {
-                $equal_height_inner.children('div').css('min-height', 'auto');
-                $equal_height_inner.children('div').children('div').css('min-height', 'auto');
-                $equal_height_inner.equalHeights();
-                $equal_height_inner.children('div').each(function() {
-                    $(this).children('div').css('min-height', $(this).css('min-height'));
-                });
-            }
-
-            /* pricing-table equal heigh*/
-            var $equal_height_pricing_table = $('.equal-height-pricing-table');
-            if( $equal_height_pricing_table.length > 0 ) {
-                $equal_height_pricing_table.children('div').css('min-height', 'auto');
-                $equal_height_pricing_table.children('div').children('div').css('min-height', 'auto');
-                $equal_height_pricing_table.equalHeights();
-                $equal_height_pricing_table.children('div').each(function() {
-                    $(this).children('div').css('min-height', $(this).css('min-height'));
-                });
-            }
         }
 
     };
@@ -965,7 +812,7 @@ var THEMEMASCOT = {};
         /* ---------------------------------------------------------------------- */
         TM_navLocalScorll: function() {
             var data_offset = -60;
-            var $local_scroll = $("#menuzord .menuzord-menu, #menuzord-right .menuzord-menu");
+            var $local_scroll = $("#menuzord .menuzord-menu, #menuzord-right .menuzord-menu, #footer, .header-top");
             if( $local_scroll.length > 0 ) {
                 $local_scroll.localScroll({
                     target: "body",
@@ -2090,10 +1937,15 @@ var THEMEMASCOT = {};
         /* ---------------------------------------------------------------------- */
         TM_bxslider: function() {
             var $bxslider = $('.bxslider');
-            if( $bxslider.length > 0 ) {
+
+            if ($bxslider.length > 0) {
+                var isMobile = window.innerWidth < 768;
+
                 $bxslider.bxSlider({
-                    mode: 'vertical',
-                    minSlides: ( $bxslider.data("minslides") === undefined ) ? 2: $bxslider.data("minslides"),
+                    mode: isMobile ? 'horizontal' : 'vertical', // horizontal only on mobile
+                    minSlides: isMobile ? 1 : ($bxslider.data("minslides") === undefined ? 2 : $bxslider.data("minslides")),
+                    maxSlides: isMobile ? 1 : undefined,
+                    moveSlides: 1,
                     slideMargin: 20,
                     pager: false,
                     speed: 500,

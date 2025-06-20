@@ -895,6 +895,9 @@ iframe.map-frame .place-card.place-card-large {
     padding-left: 15px !important;
     padding-top: 40px !important;
   }
+  #about .container.pb-70 {
+    padding-bottom: 50px !important;
+  }
 }
 /*
  * Overlays.less
@@ -1858,6 +1861,12 @@ form .form-control.error {
 }
 form .error {
   color: #ee163b;
+}
+.form-group label.error {
+    font-size: 12px;
+    line-height: 1;
+    margin: 5px 0 -8px;
+    display: block;
 }
 /* -------- Donation Form ---------- */
 .donation-form .form-group label.radio-inline {
